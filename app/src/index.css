@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bone: #f0ece4;
+  --bone-2: #e6e1d6;
+  --ink: #07070a;
+  --ink-2: #0f0f14;
+  --rose: #b08968;
+  --rose-2: #8a6a4d;
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --surface: var(--bone-2);
+  --surface-2: #ffffff;
+}
+
+[data-theme="dark"] {
+  --background: var(--ink);
+  --foreground: var(--bone);
+  --surface: var(--ink-2);
+  --surface-2: #131118;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-bone: var(--bone);
+  --color-bone-2: var(--bone-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-rose: var(--rose);
+  --color-rose-2: var(--rose-2);
+
+  --font-display: "Unbounded", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (hover: none) {
+  body {
+    cursor: auto;
+  }
+  #cur {
+    display: none;
+  }
+}
+
+/* Custom cursor hover state, toggled via classList by Cursor.jsx.
+   Uses the bone tone directly (not theme tokens) because the dot is
+   mix-blend-mode: difference, which already inverts against any bg. */
+#cur.hov {
+  width: 42px;
+  height: 42px;
+  background: rgba(240, 236, 228, 0.12);
+  border: 1px solid rgba(240, 236, 228, 0.5);
+}
+
+/* Scroll-reveal: toggled via IntersectionObserver adding/removing the
+   plain ".on" class (see useScrollReveal). Kept as literal CSS because
+   the JS targets these class names directly via querySelectorAll. */
+.sr,
+.srl,
+.srr {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.srl {
+  transform: translateX(-36px);
+}
+.srr {
+  transform: translateX(36px);
+}
+.sr.on,
+.srl.on,
+.srr.on {
+  opacity: 1;
+  transform: none;
+}
+.d1 {
+  transition-delay: 0.1s;
+}
+.d2 {
+  transition-delay: 0.22s;
+}
+.d3 {
+  transition-delay: 0.34s;
+}
+
+/* Ticker marquee */
+@keyframes tkr {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  animation: tkr 34s linear infinite;
+}
+
+/* Hero floating cards */
+@keyframes flt {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.fa {
+  animation: flt 6s ease-in-out infinite;
+}
+.fb {
+  animation: flt 8s ease-in-out 1.2s infinite;
+}

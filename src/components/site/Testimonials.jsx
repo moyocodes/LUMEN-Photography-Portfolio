@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react"
 
 const REVIEWS = [
-  {
-    quote: "I wasn't expecting less but you blew my mind.",
-    name: "Client",
-    detail: "Portrait session",
-  },
-  {
-    quote: "They are so so beautiful! Thank you so much. God bless you.",
-    name: "Client",
-    detail: "Portrait session",
-  },
-  {
-    quote: "Perfect. Thank you.",
-    name: "Client",
-    detail: "Reel session",
-  },
+  { src: "/review-1.png", alt: "WhatsApp review: I wasn't expecting less but you blew my mind." },
+  { src: "/review-2.png", alt: "WhatsApp review: They are so so beautiful! Thank you so much. God bless you." },
+  { src: "/review-3.png", alt: "WhatsApp review: Perfect. Thank you." },
 ]
 
 export function Testimonials() {
@@ -42,7 +30,19 @@ export function Testimonials() {
           What clients say.
         </h2>
 
-        <div className="sr relative mt-12 overflow-hidden">
+        <div className="sr mt-12 hidden gap-6 md:grid md:grid-cols-3">
+          {REVIEWS.map((t, i) => (
+            <div
+              key={i}
+              data-cursor-hover
+              className="mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl border border-foreground/5 shadow-[0_8px_40px_rgba(0,0,0,0.12)] transition-colors duration-250 hover:border-foreground/25"
+            >
+              <img src={t.src} alt={t.alt} className="block h-auto w-full max-h-[460px] object-cover object-top" />
+            </div>
+          ))}
+        </div>
+
+        <div className="sr relative mt-12 overflow-hidden md:hidden">
           <div
             className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
             style={{ transform: `translateX(-${active * 100}%)` }}
@@ -51,21 +51,13 @@ export function Testimonials() {
               <div key={i} className="w-full flex-shrink-0 px-1">
                 <div
                   data-cursor-hover
-                  className="mx-auto max-w-[560px] rounded-2xl border border-foreground/5 bg-foreground/3 p-[2rem] text-center transition-colors duration-250 hover:border-foreground/25"
+                  className="mx-auto max-w-[360px] overflow-hidden rounded-2xl border border-foreground/5 shadow-[0_8px_40px_rgba(0,0,0,0.12)] transition-colors duration-250 hover:border-foreground/25"
                 >
-                  <div className="mb-4 text-[0.8rem] tracking-[0.06em] text-rose">★★★★★</div>
-                  <p className="mb-[1.4rem] font-serif text-[1.05rem] italic leading-[1.8] text-foreground/70">
-                    "{t.quote}"
-                  </p>
-                  <div className="flex items-center justify-center gap-[0.65rem]">
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-foreground/10 font-display text-[0.5rem] font-bold text-rose">
-                      —
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[0.78rem] text-foreground">{t.name}</div>
-                      <div className="mt-[0.1rem] text-[0.6rem] text-foreground/28">{t.detail}</div>
-                    </div>
-                  </div>
+                  <img
+                    src={t.src}
+                    alt={t.alt}
+                    className="block h-auto w-full max-h-[520px] object-cover object-top"
+                  />
                 </div>
               </div>
             ))}

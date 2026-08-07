@@ -19,10 +19,10 @@ export function BookingPolicy() {
         <h2 className="sr mb-12 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold text-foreground">
           Booking policy.
         </h2>
-        <div className="sr d1 rounded-2xl bg-bone p-[clamp(2rem,4vw,3.4rem)] text-ink">
-          <div className="mb-[1.6rem] flex items-center justify-between border-b border-ink/12 pb-[1.6rem]">
+        <div className="sr d1 rounded-2xl bg-background p-[clamp(2rem,4vw,3.4rem)] text-foreground">
+          <div className="mb-[1.6rem] flex items-center justify-between border-b border-foreground/12 pb-[1.6rem]">
             <span className="font-display text-[1.05rem] font-bold">Booking Policy</span>
-            <span className="flex h-[2.2rem] w-[2.2rem] items-center justify-center rounded-full border-[1.5px] border-ink font-serif italic">
+            <span className="flex h-[2.2rem] w-[2.2rem] items-center justify-center rounded-full border-[1.5px] border-foreground font-serif italic">
               !
             </span>
           </div>

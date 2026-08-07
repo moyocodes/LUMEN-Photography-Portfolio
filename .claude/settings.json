@@ -74,7 +74,10 @@
       "Bash(curl -s http://localhost:5174/src/components/site/Nav.jsx)",
       "Bash(curl -s \"http://localhost:5174/src/index.css\")",
       "Bash(curl -s \"http://localhost:5174/@vite/client\")",
-      "Bash(curl -s \"http://localhost:5174/\")"
+      "Bash(curl -s \"http://localhost:5174/\")",
+      "Bash(mv \"image.png\" \"review-1.png\")",
+      "Bash(mv \"image copy.png\" \"review-2.png\")",
+      "Bash(mv \"image copy 2.png\" \"review-3.png\")"
     ],
     "additionalDirectories": [
       "/Users/tizetimoyosore/Developer/tiwa/app/@/components/ui"

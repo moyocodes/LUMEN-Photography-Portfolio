@@ -1,8 +1,55 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const clamp = (t) => Math.max(0, Math.min(1, t))
 const remap = (t, a, b) => clamp((t - a) / (b - a))
 const easeOut = (t) => 1 - Math.pow(1 - t, 3)
+
+const GALLERY = [
+  "/portfolio/photo-1.jpeg",
+  "/portfolio/photo-2.jpeg",
+  "/portfolio/photo-3.jpeg",
+  "/portfolio/photo-4.jpeg",
+  "/portfolio/photo-5.jpeg",
+  "/portfolio/photo-6.jpeg",
+  "/portfolio/photo-7.jpeg",
+  "/portfolio/photo-8.jpeg",
+  "/portfolio/photo-9.jpeg",
+  "/portfolio/photo-10.jpeg",
+  "/portfolio/photo-11.jpeg",
+  "/portfolio/photo-12.jpeg",
+  "/portfolio/photo-13.jpeg",
+  "/portfolio/photo-14.jpeg",
+  "/portfolio/photo-15.jpeg",
+  "/portfolio/photo-16.jpeg",
+]
+
+function useRotatingIndex(length, intervalMs, offset = 0) {
+  const [index, setIndex] = useState(offset % length)
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % length)
+    }, intervalMs)
+    return () => clearInterval(id)
+  }, [length, intervalMs])
+  return index
+}
+
+function RotatingImage({ images, index, className }) {
+  return (
+    <div className="absolute inset-0 h-full w-full">
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt=""
+          className={`absolute inset-0 h-full w-full transition-opacity duration-[1500ms] ease-in-out ${className} ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+    </div>
+  )
+}
 
 export function Hero() {
   const zoneRef = useRef(null)
@@ -14,6 +61,8 @@ export function Hero() {
   const quoteInnerRef = useRef(null)
   const ctaRef = useRef(null)
   const ctaInRef = useRef(null)
+
+  const rotIndex = useRotatingIndex(GALLERY.length, 3500)
 
   useEffect(() => {
     function update() {
@@ -67,27 +116,27 @@ export function Hero() {
           ref={imgRef}
           className="absolute inset-0 h-full w-full origin-center"
         >
-          <img
-            src="/portfolio/photo-1.jpeg"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover max-md:block hidden"
-          />
+          <div className="relative h-full w-full md:hidden">
+            <RotatingImage images={GALLERY} index={rotIndex} className="object-cover" />
+          </div>
           <div className="hidden h-full w-full md:grid md:grid-cols-3">
-            <img
-              src="/portfolio/photo-14.jpeg"
-              alt=""
-              className="h-full w-full object-cover object-top"
-            />
-            <img
-              src="/portfolio/photo-1.jpeg"
-              alt=""
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/portfolio/photo-16.jpeg"
-              alt=""
-              className="h-full w-full object-cover object-top"
-            />
+            <div className="relative h-full w-full">
+              <RotatingImage
+                images={GALLERY}
+                index={(rotIndex + Math.floor(GALLERY.length / 3)) % GALLERY.length}
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="relative h-full w-full">
+              <RotatingImage images={GALLERY} index={rotIndex} className="object-cover" />
+            </div>
+            <div className="relative h-full w-full">
+              <RotatingImage
+                images={GALLERY}
+                index={(rotIndex + Math.floor((GALLERY.length * 2) / 3)) % GALLERY.length}
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
         <div id="h-grad" className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} />
@@ -173,11 +222,19 @@ export function Hero() {
           className="absolute inset-0 z-7 flex items-center justify-center pointer-events-none opacity-0"
         >
           <div className="absolute inset-0" style={{ background: "var(--background)" }} />
-          <div className="absolute inset-y-0 left-0 hidden w-[22%] lg:block">
-            <img src="/portfolio/photo-11.jpeg" alt="" className="h-full w-full object-cover object-top opacity-60" />
+          <div className="absolute inset-y-0 left-0 hidden w-[22%] opacity-60 lg:block">
+            <RotatingImage
+              images={GALLERY}
+              index={(rotIndex + Math.floor(GALLERY.length / 3)) % GALLERY.length}
+              className="object-cover object-top"
+            />
           </div>
-          <div className="absolute inset-y-0 right-0 hidden w-[22%] lg:block">
-            <img src="/portfolio/photo-16.jpeg" alt="" className="h-full w-full object-cover object-top opacity-60" />
+          <div className="absolute inset-y-0 right-0 hidden w-[22%] opacity-60 lg:block">
+            <RotatingImage
+              images={GALLERY}
+              index={(rotIndex + Math.floor((GALLERY.length * 2) / 3)) % GALLERY.length}
+              className="object-cover object-top"
+            />
           </div>
           <div id="h-cta-in" ref={ctaInRef} className="relative translate-y-10 text-center opacity-0">
             <div className="mb-[1.4rem] text-[0.6rem] tracking-[0.2em] uppercase text-rose">

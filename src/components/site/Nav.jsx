@@ -80,6 +80,7 @@ export function Nav({ onOpenTips }) {
               </svg>
             )}
           </button>
+          {/* Temporarily disabled — re-enable by restoring this button
           <button
             type="button"
             onClick={onOpenTips}
@@ -88,6 +89,7 @@ export function Nav({ onOpenTips }) {
           >
             Tips
           </button>
+          */}
           <a
             href={buildWhatsAppLink(DEFAULT_BOOKING_MESSAGE)}
             target="_blank"

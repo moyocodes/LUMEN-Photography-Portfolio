@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { Cursor } from "@/components/site/Cursor"
 import { Nav } from "@/components/site/Nav"
 import { Hero } from "@/components/site/Hero"
@@ -10,27 +9,18 @@ import { BookingPolicy } from "@/components/site/BookingPolicy"
 import { Faq } from "@/components/site/Faq"
 import { Testimonials } from "@/components/site/Testimonials"
 import { Contact } from "@/components/site/Contact"
-import { TipsDrawer } from "@/components/site/TipsDrawer"
+// import { TipsDrawer } from "@/components/site/TipsDrawer" // temporarily disabled
 import { WhatsAppWidget } from "@/components/site/WhatsAppWidget"
+import { RateCardWidget } from "@/components/site/RateCardWidget"
 import { useScrollReveal } from "@/hooks/useScrollReveal"
 
 function App() {
-  const [tipsOpen, setTipsOpen] = useState(false)
-
   useScrollReveal()
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") setTipsOpen(false)
-    }
-    document.addEventListener("keydown", onKey)
-    return () => document.removeEventListener("keydown", onKey)
-  }, [])
 
   return (
     <div id="top">
       <Cursor />
-      <Nav onOpenTips={() => setTipsOpen(true)} />
+      <Nav onOpenTips={() => {}} />
 
       <Hero />
       <Ticker />
@@ -43,8 +33,9 @@ function App() {
       <Testimonials />
       <Contact />
 
-      <TipsDrawer open={tipsOpen} onClose={() => setTipsOpen(false)} />
+      {/* <TipsDrawer open={tipsOpen} onClose={() => setTipsOpen(false)} /> temporarily disabled */}
       <WhatsAppWidget />
+      <RateCardWidget />
     </div>
   )
 }

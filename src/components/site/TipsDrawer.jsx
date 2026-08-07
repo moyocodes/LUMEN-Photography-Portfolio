@@ -64,24 +64,24 @@ export function TipsDrawer({ open, onClose }) {
       />
       <div
         id="drawer"
-        className={`fixed right-0 top-0 bottom-0 z-[9100] flex w-[370px] max-w-[90vw] flex-col overscroll-contain border-l border-[rgba(200,185,150,0.09)] bg-[#0f0f14] transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`fixed right-0 top-0 bottom-0 z-[9100] flex w-[370px] max-w-[90vw] flex-col overscroll-contain border-l border-foreground/9 bg-background transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <div className="flex items-center justify-between border-b border-[rgba(200,185,150,0.07)] p-[1.8rem]">
-          <span className="font-serif text-[1.2rem] italic text-bone">Photography Tips</span>
+        <div className="flex items-center justify-between border-b border-foreground/7 p-[1.8rem]">
+          <span className="font-serif text-[1.2rem] italic text-foreground">Photography Tips</span>
           <button
             type="button"
             onClick={onClose}
             data-cursor-hover
             aria-label="Close tips"
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-[rgba(200,185,150,0.18)] text-[0.75rem] text-bone/38 transition-all duration-200 hover:border-rose hover:text-rose"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-foreground/18 text-[0.75rem] text-foreground/38 transition-all duration-200 hover:border-rose hover:text-rose"
           >
             ✕
           </button>
         </div>
-        <div className="flex flex-wrap gap-[0.3rem] border-b border-[rgba(200,185,150,0.06)] p-[0.9rem_1.8rem]">
+        <div className="flex flex-wrap gap-[0.3rem] border-b border-foreground/6 p-[0.9rem_1.8rem]">
           {TABS.map((tab) => {
             const on = cat === tab.key
             return (
@@ -92,8 +92,8 @@ export function TipsDrawer({ open, onClose }) {
                 data-cursor-hover
                 className={`rounded-full border px-[0.8rem] py-[0.35rem] font-sans text-[0.52rem] tracking-[0.1em] uppercase transition-all duration-200 ${
                   on
-                    ? "border-rose bg-rose text-ink"
-                    : "border-[rgba(200,185,150,0.12)] bg-transparent text-bone/32"
+                    ? "border-rose bg-rose text-background"
+                    : "border-foreground/12 bg-transparent text-foreground/32"
                 }`}
               >
                 {tab.label}
@@ -104,14 +104,14 @@ export function TipsDrawer({ open, onClose }) {
         <div className="flex-1 overflow-y-auto p-[1.2rem_1.8rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {TIPS[cat].map((tip, i) => (
             <div
-              className="mb-[0.7rem] rounded-[0.6rem] border border-[rgba(200,185,150,0.07)] bg-bone/3 p-[1.1rem] transition-colors duration-200 hover:border-bone/28"
+              className="mb-[0.7rem] rounded-[0.6rem] border border-foreground/7 bg-foreground/3 p-[1.1rem] transition-colors duration-200 hover:border-foreground/28"
               key={tip.t}
             >
               <div className="mb-[0.4rem] text-[0.46rem] tracking-[0.18em] uppercase text-rose">
                 Tip {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="mb-[0.45rem] font-serif text-[0.9rem] italic text-bone">{tip.t}</div>
-              <div className="text-[0.68rem] leading-[1.85] text-bone/37">{tip.b}</div>
+              <div className="mb-[0.45rem] font-serif text-[0.9rem] italic text-foreground">{tip.t}</div>
+              <div className="text-[0.68rem] leading-[1.85] text-foreground/37">{tip.b}</div>
             </div>
           ))}
         </div>

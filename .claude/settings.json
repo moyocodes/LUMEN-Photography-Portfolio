@@ -64,7 +64,10 @@
       "Bash(git mv *)",
       "Bash(git rm *)",
       "Bash(lsof -ti:5173,5174,5175)",
-      "Bash(xargs kill)"
+      "Bash(xargs kill)",
+      "Bash(git count-objects *)",
+      "Bash(git push *)",
+      "Bash(./node_modules/.bin/oxlint src/components/site/Nav.jsx)"
     ],
     "additionalDirectories": [
       "/Users/tizetimoyosore/Developer/tiwa/app/@/components/ui"

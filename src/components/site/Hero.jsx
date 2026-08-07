@@ -26,7 +26,24 @@ const PORTRAITS = [
   "/portfolio/photo-16.jpeg",
 ]
 
-const GALLERY = [...COLLAGE, ...PORTRAITS]
+const GALLERY = [
+  COLLAGE[0],
+  PORTRAITS[0],
+  COLLAGE[1],
+  PORTRAITS[1],
+  COLLAGE[2],
+  PORTRAITS[2],
+  COLLAGE[3],
+  PORTRAITS[3],
+  COLLAGE[4],
+  PORTRAITS[4],
+  COLLAGE[5],
+  PORTRAITS[5],
+  COLLAGE[6],
+  COLLAGE[7],
+  COLLAGE[8],
+  COLLAGE[9],
+]
 
 function useRotatingIndex(length, intervalMs, offset = 0) {
   const [index, setIndex] = useState(offset % length)

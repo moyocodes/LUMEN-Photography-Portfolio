@@ -20,30 +20,38 @@ export function Testimonials() {
   return (
     <section
       id="testi"
-      className="bg-surface px-(--gap) py-[clamp(3rem,6vw,6rem)]"
+      className="relative overflow-hidden bg-background px-(--gap) py-[clamp(2.5rem,5vw,4.5rem)]"
       style={{ "--gap": "clamp(1.2rem, 3.5vw, 3.5rem)" }}
     >
-      <div className="mx-auto max-w-(--max)" style={{ "--max": "1260px" }}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--rose) 8%, transparent) 0%, transparent 70%)",
+        }}
+      />
+      <div className="relative mx-auto max-w-(--max)" style={{ "--max": "1260px" }}>
         <p className="sr mb-4 flex items-center gap-[0.7rem] text-[0.55rem] tracking-[0.2em] uppercase text-rose before:block before:h-px before:w-6 before:bg-rose">
           Kind words
         </p>
-        <h2 className="sr mb-12 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold text-foreground">
+        <h2 className="sr mb-8 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold text-foreground">
           What clients say.
         </h2>
 
-        <div className="sr mt-12 hidden gap-6 md:grid md:grid-cols-3">
+        <div className="sr mt-8 hidden gap-6 md:grid md:grid-cols-3">
           {REVIEWS.map((t, i) => (
             <img
               key={i}
               src={t.src}
               alt={t.alt}
               data-cursor-hover
-              className="mx-auto h-auto max-h-[460px] w-full max-w-[320px] object-contain"
+              className="mx-auto h-auto max-h-[460px] w-full max-w-[320px] rounded-xl object-contain shadow-[0_16px_40px_rgba(0,0,0,0.18)]"
             />
           ))}
         </div>
 
-        <div className="sr relative mt-12 overflow-hidden md:hidden">
+        <div className="sr relative mt-8 overflow-hidden md:hidden">
           <div
             className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
             style={{ transform: `translateX(-${active * 100}%)` }}
@@ -54,13 +62,13 @@ export function Testimonials() {
                   src={t.src}
                   alt={t.alt}
                   data-cursor-hover
-                  className="mx-auto h-auto max-h-[520px] w-full max-w-[360px] object-contain"
+                  className="mx-auto h-auto max-h-[520px] w-full max-w-[360px] rounded-xl object-contain shadow-[0_16px_40px_rgba(0,0,0,0.18)]"
                 />
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex items-center justify-center gap-[0.5rem]">
+          <div className="mt-5 flex items-center justify-center gap-[0.5rem]">
             {REVIEWS.map((_, i) => (
               <button
                 key={i}
@@ -76,7 +84,7 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="sr mt-14 flex flex-col items-center gap-4 text-center">
+        <div className="sr mt-8 flex flex-col items-center gap-3 text-center">
           <p className="text-[0.85rem] text-foreground/50">
             Ready to be one of them?
           </p>

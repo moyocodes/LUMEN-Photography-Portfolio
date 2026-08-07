@@ -28,7 +28,7 @@ export function PolicyFaq() {
 
   return (
     <section
-      className="relative overflow-hidden bg-surface px-(--gap) py-[clamp(3rem,6vw,6rem)]"
+      className="relative overflow-hidden bg-surface px-(--gap) py-[clamp(2.5rem,5vw,4.5rem)]"
       style={{ "--gap": "clamp(1.2rem, 3.5vw, 3.5rem)" }}
     >
       <div

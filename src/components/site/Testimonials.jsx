@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { buildWhatsAppLink, DEFAULT_BOOKING_MESSAGE } from "@/lib/whatsapp"
 
 const REVIEWS = [
   { src: "/review-1.png", alt: "WhatsApp review: I wasn't expecting less but you blew my mind." },
@@ -19,7 +20,7 @@ export function Testimonials() {
   return (
     <section
       id="testi"
-      className="bg-surface px-(--gap) py-[clamp(4rem,9vw,9rem)]"
+      className="bg-surface px-(--gap) py-[clamp(3rem,6vw,6rem)]"
       style={{ "--gap": "clamp(1.2rem, 3.5vw, 3.5rem)" }}
     >
       <div className="mx-auto max-w-(--max)" style={{ "--max": "1260px" }}>
@@ -73,6 +74,21 @@ export function Testimonials() {
               />
             ))}
           </div>
+        </div>
+
+        <div className="sr mt-14 flex flex-col items-center gap-4 text-center">
+          <p className="text-[0.85rem] text-foreground/50">
+            Ready to be one of them?
+          </p>
+          <a
+            href={buildWhatsAppLink(DEFAULT_BOOKING_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor-hover
+            className="inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-background no-underline transition-all duration-250 hover:bg-rose-2"
+          >
+            Book a session
+          </a>
         </div>
       </div>
     </section>

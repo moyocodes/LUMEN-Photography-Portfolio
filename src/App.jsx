@@ -5,8 +5,7 @@ import { Ticker } from "@/components/site/Ticker"
 import { FilmStrip } from "@/components/site/FilmStrip"
 import { About } from "@/components/site/About"
 import { Packages } from "@/components/site/Packages"
-import { BookingPolicy } from "@/components/site/BookingPolicy"
-import { Faq } from "@/components/site/Faq"
+import { PolicyFaq } from "@/components/site/PolicyFaq"
 import { Testimonials } from "@/components/site/Testimonials"
 import { Contact } from "@/components/site/Contact"
 // import { TipsDrawer } from "@/components/site/TipsDrawer" // temporarily disabled
@@ -28,8 +27,7 @@ function App() {
       <About />
 
       <Packages />
-      <BookingPolicy />
-      <Faq />
+      <PolicyFaq />
       <Testimonials />
       <Contact />
 

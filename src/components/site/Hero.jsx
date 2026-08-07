@@ -4,7 +4,7 @@ const clamp = (t) => Math.max(0, Math.min(1, t))
 const remap = (t, a, b) => clamp((t - a) / (b - a))
 const easeOut = (t) => 1 - Math.pow(1 - t, 3)
 
-const GALLERY = [
+const COLLAGE = [
   "/portfolio/photo-1.jpeg",
   "/portfolio/photo-2.jpeg",
   "/portfolio/photo-3.jpeg",
@@ -15,6 +15,9 @@ const GALLERY = [
   "/portfolio/photo-8.jpeg",
   "/portfolio/photo-9.jpeg",
   "/portfolio/photo-10.jpeg",
+]
+
+const PORTRAITS = [
   "/portfolio/photo-11.jpeg",
   "/portfolio/photo-12.jpeg",
   "/portfolio/photo-13.jpeg",
@@ -22,6 +25,8 @@ const GALLERY = [
   "/portfolio/photo-15.jpeg",
   "/portfolio/photo-16.jpeg",
 ]
+
+const GALLERY = [...COLLAGE, ...PORTRAITS]
 
 function useRotatingIndex(length, intervalMs, offset = 0) {
   const [index, setIndex] = useState(offset % length)
@@ -63,6 +68,9 @@ export function Hero() {
   const ctaInRef = useRef(null)
 
   const rotIndex = useRotatingIndex(GALLERY.length, 3500)
+  const collageIndex = useRotatingIndex(COLLAGE.length, 3500)
+  const collageIndex2 = useRotatingIndex(COLLAGE.length, 3500, Math.floor(COLLAGE.length / 2))
+  const portraitIndex = useRotatingIndex(PORTRAITS.length, 3500)
 
   useEffect(() => {
     function update() {
@@ -121,21 +129,13 @@ export function Hero() {
           </div>
           <div className="hidden h-full w-full md:grid md:grid-cols-3">
             <div className="relative h-full w-full">
-              <RotatingImage
-                images={GALLERY}
-                index={(rotIndex + Math.floor(GALLERY.length / 3)) % GALLERY.length}
-                className="object-cover object-top"
-              />
+              <RotatingImage images={COLLAGE} index={collageIndex} className="object-cover object-top" />
             </div>
             <div className="relative h-full w-full">
-              <RotatingImage images={GALLERY} index={rotIndex} className="object-cover" />
+              <RotatingImage images={PORTRAITS} index={portraitIndex} className="object-cover" />
             </div>
             <div className="relative h-full w-full">
-              <RotatingImage
-                images={GALLERY}
-                index={(rotIndex + Math.floor((GALLERY.length * 2) / 3)) % GALLERY.length}
-                className="object-cover object-top"
-              />
+              <RotatingImage images={COLLAGE} index={collageIndex2} className="object-cover object-top" />
             </div>
           </div>
         </div>
@@ -223,16 +223,12 @@ export function Hero() {
         >
           <div className="absolute inset-0" style={{ background: "var(--background)" }} />
           <div className="absolute inset-y-0 left-0 hidden w-[22%] opacity-60 lg:block">
-            <RotatingImage
-              images={GALLERY}
-              index={(rotIndex + Math.floor(GALLERY.length / 3)) % GALLERY.length}
-              className="object-cover object-top"
-            />
+            <RotatingImage images={PORTRAITS} index={portraitIndex} className="object-cover object-top" />
           </div>
           <div className="absolute inset-y-0 right-0 hidden w-[22%] opacity-60 lg:block">
             <RotatingImage
-              images={GALLERY}
-              index={(rotIndex + Math.floor((GALLERY.length * 2) / 3)) % GALLERY.length}
+              images={PORTRAITS}
+              index={(portraitIndex + Math.floor(PORTRAITS.length / 2)) % PORTRAITS.length}
               className="object-cover object-top"
             />
           </div>

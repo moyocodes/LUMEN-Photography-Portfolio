@@ -85,7 +85,9 @@
       "Bash(sips -s format jpeg -s formatOptions 82 -Z 1600 \"image copy 4.png\" --out \"portfolio/photo-15.jpeg\")",
       "Bash(sips -s format jpeg -s formatOptions 82 -Z 1600 \"image copy 5.png\" --out \"portfolio/photo-16.jpeg\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/portfolio/photo-11.jpeg)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/portfolio/photo-1.jpeg)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5174/portfolio/photo-1.jpeg)",
+      "Bash(awk '{print $NF}')",
+      "Bash(curl -s \"http://localhost:5174/src/components/site/Faq.jsx\")"
     ],
     "additionalDirectories": [
       "/Users/tizetimoyosore/Developer/tiwa/app/@/components/ui"

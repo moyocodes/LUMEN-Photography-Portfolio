@@ -6,6 +6,8 @@ const LINKS = [
   ["#film-zone", "Work"],
   ["#about", "About"],
   ["#packages", "Pricing"],
+  ["#policy", "Booking Policy"],
+  ["#faq", "FAQ"],
   ["#contact", "Contact"],
 ]
 

@@ -61,7 +61,7 @@ export function Hero() {
 
   return (
     <div id="hero-zone" ref={zoneRef} className="relative h-[400vh]">
-      <div id="hero-pin" ref={pinRef} className="sticky top-0 h-dvh overflow-hidden">
+      <div id="hero-pin" ref={pinRef} className="sticky top-0 z-0 h-dvh overflow-hidden">
         <img
           id="h-img"
           ref={imgRef}

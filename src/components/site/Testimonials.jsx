@@ -1,12 +1,33 @@
-const PLACEHOLDERS = [
-  { initials: "—", name: "Client name", detail: "Portrait session" },
-  { initials: "—", name: "Client name", detail: "Reel session" },
-  { initials: "—", name: "Client name", detail: "Portrait session" },
+import { useEffect, useState } from "react"
+
+const REVIEWS = [
+  {
+    quote: "I wasn't expecting less but you blew my mind.",
+    name: "Client",
+    detail: "Portrait session",
+  },
+  {
+    quote: "They are so so beautiful! Thank you so much. God bless you.",
+    name: "Client",
+    detail: "Portrait session",
+  },
+  {
+    quote: "Perfect. Thank you.",
+    name: "Client",
+    detail: "Reel session",
+  },
 ]
 
-const DELAY = { 1: "d1", 2: "d2", 3: "d3" }
-
 export function Testimonials() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % REVIEWS.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [])
+
   return (
     <section
       id="testi"
@@ -20,28 +41,50 @@ export function Testimonials() {
         <h2 className="sr mb-12 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold text-foreground">
           What clients say.
         </h2>
-        <div className="mt-12 grid grid-cols-3 gap-4 max-md:grid-cols-1">
-          {PLACEHOLDERS.map((t, i) => (
-            <div
-              key={i}
-              data-cursor-hover
-              className={`sr ${DELAY[i + 1]} rounded-2xl border border-foreground/5 bg-foreground/3 p-[1.7rem] transition-colors duration-250 hover:border-foreground/25`}
-            >
-              <div className="mb-4 text-[0.72rem] tracking-[0.06em] text-rose">★★★★★</div>
-              <p className="mb-[1.4rem] font-serif text-[0.95rem] italic leading-[1.8] text-foreground/60">
-                "Client testimonials will appear here soon."
-              </p>
-              <div className="flex items-center gap-[0.65rem]">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-foreground/10 font-display text-[0.5rem] font-bold text-rose">
-                  {t.initials}
-                </div>
-                <div>
-                  <div className="text-[0.78rem] text-foreground">{t.name}</div>
-                  <div className="mt-[0.1rem] text-[0.6rem] text-foreground/28">{t.detail}</div>
+
+        <div className="sr relative mt-12 overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ transform: `translateX(-${active * 100}%)` }}
+          >
+            {REVIEWS.map((t, i) => (
+              <div key={i} className="w-full flex-shrink-0 px-1">
+                <div
+                  data-cursor-hover
+                  className="mx-auto max-w-[560px] rounded-2xl border border-foreground/5 bg-foreground/3 p-[2rem] text-center transition-colors duration-250 hover:border-foreground/25"
+                >
+                  <div className="mb-4 text-[0.8rem] tracking-[0.06em] text-rose">★★★★★</div>
+                  <p className="mb-[1.4rem] font-serif text-[1.05rem] italic leading-[1.8] text-foreground/70">
+                    "{t.quote}"
+                  </p>
+                  <div className="flex items-center justify-center gap-[0.65rem]">
+                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-foreground/10 font-display text-[0.5rem] font-bold text-rose">
+                      —
+                    </div>
+                    <div className="text-left">
+                      <div className="text-[0.78rem] text-foreground">{t.name}</div>
+                      <div className="mt-[0.1rem] text-[0.6rem] text-foreground/28">{t.detail}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-[0.5rem]">
+            {REVIEWS.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActive(i)}
+                data-cursor-hover
+                aria-label={`Go to review ${i + 1}`}
+                className={`h-[6px] rounded-full transition-all duration-300 ${
+                  i === active ? "w-6 bg-rose" : "w-[6px] bg-foreground/20"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -67,7 +67,14 @@
       "Bash(xargs kill)",
       "Bash(git count-objects *)",
       "Bash(git push *)",
-      "Bash(./node_modules/.bin/oxlint src/components/site/Nav.jsx)"
+      "Bash(./node_modules/.bin/oxlint src/components/site/Nav.jsx)",
+      "Bash(lsof -i :5174 -sTCP:LISTEN)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(node -e \"console.log\\(process.version\\)\")",
+      "Bash(curl -s http://localhost:5174/src/components/site/Nav.jsx)",
+      "Bash(curl -s \"http://localhost:5174/src/index.css\")",
+      "Bash(curl -s \"http://localhost:5174/@vite/client\")",
+      "Bash(curl -s \"http://localhost:5174/\")"
     ],
     "additionalDirectories": [
       "/Users/tizetimoyosore/Developer/tiwa/app/@/components/ui"

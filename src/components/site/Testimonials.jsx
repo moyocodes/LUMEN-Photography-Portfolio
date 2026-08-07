@@ -32,13 +32,13 @@ export function Testimonials() {
 
         <div className="sr mt-12 hidden gap-6 md:grid md:grid-cols-3">
           {REVIEWS.map((t, i) => (
-            <div
+            <img
               key={i}
+              src={t.src}
+              alt={t.alt}
               data-cursor-hover
-              className="mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl border border-foreground/5 shadow-[0_8px_40px_rgba(0,0,0,0.12)] transition-colors duration-250 hover:border-foreground/25"
-            >
-              <img src={t.src} alt={t.alt} className="block h-auto w-full max-h-[460px] object-cover object-top" />
-            </div>
+              className="mx-auto h-auto max-h-[460px] w-full max-w-[320px] object-contain"
+            />
           ))}
         </div>
 
@@ -49,16 +49,12 @@ export function Testimonials() {
           >
             {REVIEWS.map((t, i) => (
               <div key={i} className="w-full flex-shrink-0 px-1">
-                <div
+                <img
+                  src={t.src}
+                  alt={t.alt}
                   data-cursor-hover
-                  className="mx-auto max-w-[360px] overflow-hidden rounded-2xl border border-foreground/5 shadow-[0_8px_40px_rgba(0,0,0,0.12)] transition-colors duration-250 hover:border-foreground/25"
-                >
-                  <img
-                    src={t.src}
-                    alt={t.alt}
-                    className="block h-auto w-full max-h-[520px] object-cover object-top"
-                  />
-                </div>
+                  className="mx-auto h-auto max-h-[520px] w-full max-w-[360px] object-contain"
+                />
               </div>
             ))}
           </div>

@@ -9,23 +9,16 @@ export function About() {
     >
       <div className="mx-auto grid max-w-(--max) grid-cols-2 items-center gap-20 max-md:grid-cols-1 max-md:gap-12" style={{ "--max": "1260px" }}>
         <div className="srl relative h-[580px] max-md:h-[420px]">
-          <div className="absolute left-0 top-0 h-[80%] w-[74%] overflow-hidden rounded-[0.4rem_3.5rem_0.4rem_0.4rem] bg-[#131018]">
-            <img
-              src="/portfolio/photo-3.jpeg"
-              alt="TTMP portrait work"
-              className="block h-full w-full object-contain"
-            />
-          </div>
-          <div className="absolute bottom-0 right-0 h-[52%] w-[54%] overflow-hidden rounded-[3.5rem_0.4rem_0.4rem_0.4rem] outline outline-[5px] outline-surface bg-[#131018]">
-            <img
-              src="/portfolio/photo-8.jpeg"
-              alt="TTMP portrait work"
-              className="block h-full w-full object-contain"
-            />
-          </div>
-          <div className="absolute bottom-[30%] left-[58%] right-0 max-w-[42%] rounded-[0.7rem] bg-bone px-4 py-[0.6rem] text-[0.55rem] tracking-[0.12em] uppercase text-ink shadow-[0_8px_40px_rgba(0,0,0,0.4)] max-md:whitespace-normal max-md:leading-[1.3] md:whitespace-nowrap md:max-w-none">
-            Mobile · Available to travel
-          </div>
+          <img
+            src="/portfolio/photo-12.jpeg"
+            alt="TTMP portrait work"
+            className="absolute left-0 top-0 h-[80%] w-[74%] object-contain"
+          />
+          <img
+            src="/portfolio/photo-15.jpeg"
+            alt="TTMP portrait work"
+            className="absolute bottom-0 right-0 h-[52%] w-[54%] object-contain"
+          />
         </div>
         <div className="srr d1">
           <p className="mb-[1.2rem] flex items-center gap-[0.7rem] text-[0.55rem] tracking-[0.2em] uppercase text-rose before:block before:h-px before:w-6 before:bg-rose">
@@ -49,7 +42,7 @@ export function About() {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor-hover
-            className="inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-ink no-underline transition-all duration-250 hover:bg-rose-2"
+            className="inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-background no-underline transition-all duration-250 hover:bg-rose-2"
           >
             Book a session
           </a>

@@ -5,14 +5,20 @@ const easeOut = (t) => 1 - Math.pow(1 - t, 3)
 
 const FRAMES = [
   { src: "/portfolio/photo-1.jpeg", tag: "Portrait", title: "Golden Hour" },
+  { src: "/portfolio/photo-11.jpeg", tag: "Editorial", title: "Rose Gold" },
   { src: "/portfolio/photo-2.jpeg", tag: "Portrait", title: "Soft Light" },
   { src: "/portfolio/photo-3.jpeg", tag: "Editorial", title: "Quiet Luxury" },
+  { src: "/portfolio/photo-12.jpeg", tag: "Editorial", title: "Evening Slit" },
   { src: "/portfolio/photo-4.jpeg", tag: "Portrait", title: "Still Frame" },
   { src: "/portfolio/photo-5.jpeg", tag: "Reel", title: "In Motion" },
+  { src: "/portfolio/photo-13.jpeg", tag: "Portrait", title: "Night Out" },
   { src: "/portfolio/photo-6.jpeg", tag: "Portrait", title: "Golden Hour" },
+  { src: "/portfolio/photo-14.jpeg", tag: "Editorial", title: "City Lights" },
   { src: "/portfolio/photo-7.jpeg", tag: "Editorial", title: "Off Duty" },
   { src: "/portfolio/photo-8.jpeg", tag: "Portrait", title: "Dreamstate" },
+  { src: "/portfolio/photo-15.jpeg", tag: "Portrait", title: "Crimson" },
   { src: "/portfolio/photo-9.jpeg", tag: "Editorial", title: "New Season" },
+  { src: "/portfolio/photo-16.jpeg", tag: "Portrait", title: "Radiant" },
   { src: "/portfolio/photo-10.jpeg", tag: "Portrait", title: "Untamed" },
 ]
 

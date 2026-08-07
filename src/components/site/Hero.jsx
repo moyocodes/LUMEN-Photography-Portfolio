@@ -62,21 +62,35 @@ export function Hero() {
   return (
     <div id="hero-zone" ref={zoneRef} className="relative h-[400vh]">
       <div id="hero-pin" ref={pinRef} className="sticky top-0 z-0 h-dvh overflow-hidden">
-        <img
+        <div
           id="h-img"
           ref={imgRef}
-          src="/portfolio/photo-1.jpeg"
-          alt=""
-          className="absolute inset-0 h-full w-full origin-center object-contain opacity-[0.42]"
-        />
-        <div
-          id="h-grad"
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(160deg, color-mix(in srgb, var(--background) 5%, transparent) 0%, color-mix(in srgb, var(--background) 50%, transparent) 50%, color-mix(in srgb, var(--background) 98%, transparent) 100%)",
-          }}
-        />
+          className="absolute inset-0 h-full w-full origin-center"
+        >
+          <img
+            src="/portfolio/photo-1.jpeg"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover max-md:block hidden"
+          />
+          <div className="hidden h-full w-full md:grid md:grid-cols-3">
+            <img
+              src="/portfolio/photo-14.jpeg"
+              alt=""
+              className="h-full w-full object-cover object-top"
+            />
+            <img
+              src="/portfolio/photo-1.jpeg"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+            <img
+              src="/portfolio/photo-16.jpeg"
+              alt=""
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+        </div>
+        <div id="h-grad" className="absolute inset-0" style={{ background: "var(--hero-gradient)" }} />
 
         <div
           id="h-text"
@@ -156,12 +170,16 @@ export function Hero() {
         <div
           id="h-cta"
           ref={ctaRef}
-          className="absolute inset-0 z-7 flex items-center justify-center pointer-events-none opacity-0 backdrop-blur-[8px]"
-          style={{
-            background: "color-mix(in srgb, var(--background) 52%, transparent)",
-          }}
+          className="absolute inset-0 z-7 flex items-center justify-center pointer-events-none opacity-0"
         >
-          <div id="h-cta-in" ref={ctaInRef} className="translate-y-10 text-center opacity-0">
+          <div className="absolute inset-0" style={{ background: "var(--background)" }} />
+          <div className="absolute inset-y-0 left-0 hidden w-[22%] lg:block">
+            <img src="/portfolio/photo-11.jpeg" alt="" className="h-full w-full object-cover object-top opacity-60" />
+          </div>
+          <div className="absolute inset-y-0 right-0 hidden w-[22%] lg:block">
+            <img src="/portfolio/photo-16.jpeg" alt="" className="h-full w-full object-cover object-top opacity-60" />
+          </div>
+          <div id="h-cta-in" ref={ctaInRef} className="relative translate-y-10 text-center opacity-0">
             <div className="mb-[1.4rem] text-[0.6rem] tracking-[0.2em] uppercase text-rose">
               Ready to be seen?
             </div>

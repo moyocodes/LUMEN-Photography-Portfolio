@@ -35,7 +35,7 @@ export function Nav({ onOpenTips }) {
         className={`fixed inset-x-0 top-0 z-[8000] flex items-center justify-between px-[var(--gap)] py-[1.3rem] backdrop-blur-2xl transition-all duration-400 ${
           stuck
             ? "bg-background/90 border-b border-foreground/8 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
-            : "bg-background/35"
+            : "bg-background/60"
         }`}
         style={{ "--gap": "clamp(1.2rem, 3.5vw, 3.5rem)" }}
       >

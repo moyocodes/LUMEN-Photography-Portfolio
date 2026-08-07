@@ -96,14 +96,14 @@ export function FilmStrip() {
 
   return (
     <div id="film-zone" ref={zoneRef} className="relative h-[500vh]">
-      <div id="film-pin" className="sticky top-0 h-screen overflow-hidden bg-[#131109]">
+      <div id="film-pin" className="sticky top-0 h-dvh overflow-hidden bg-[#131109]">
         <div className="film-edge absolute inset-x-0 top-0 z-8 h-20 border-b-2 border-[rgba(200,185,150,0.09)] bg-[#131109]">
           <div
             className="absolute inset-x-0 top-[1.1rem] flex items-center gap-[1.05rem] px-[1.4rem]"
             ref={topPerfRef}
           />
         </div>
-        <div id="film-hd" className="absolute inset-x-0 top-0 z-9 flex h-20 items-center justify-between px-10">
+        <div id="film-hd" className="absolute inset-x-0 top-0 z-9 flex h-20 items-center justify-between px-[1.4rem] md:px-10">
           <h3 className="font-serif text-[1.1rem] font-normal italic text-bone">Selected frames</h3>
           <span
             className="text-[0.5rem] tracking-[0.2em] uppercase text-[rgba(200,185,150,0.28)]"
@@ -119,7 +119,7 @@ export function FilmStrip() {
           <div id="film-track" ref={trackRef} className="flex will-change-transform">
             {FRAMES.map((frame, i) => (
               <div
-                className="group relative h-[calc(100vh-10rem)] w-[clamp(210px,23vw,340px)] flex-shrink-0 border-r-[3px] border-[rgba(200,185,150,0.06)]"
+                className="group relative h-[calc(100dvh-10rem)] w-[clamp(210px,23vw,340px)] flex-shrink-0 border-r-[3px] border-[rgba(200,185,150,0.06)]"
                 key={frame.src}
                 data-cursor-hover
               >

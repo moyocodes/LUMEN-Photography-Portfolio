@@ -23,7 +23,7 @@ export function About() {
               className="block h-full w-full object-contain"
             />
           </div>
-          <div className="absolute bottom-[30%] left-[58%] whitespace-nowrap rounded-[0.7rem] bg-bone px-4 py-[0.6rem] text-[0.55rem] tracking-[0.12em] uppercase text-ink shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+          <div className="absolute bottom-[30%] left-[58%] right-0 max-w-[42%] rounded-[0.7rem] bg-bone px-4 py-[0.6rem] text-[0.55rem] tracking-[0.12em] uppercase text-ink shadow-[0_8px_40px_rgba(0,0,0,0.4)] max-md:whitespace-normal max-md:leading-[1.3] md:whitespace-nowrap md:max-w-none">
             Mobile · Available to travel
           </div>
         </div>

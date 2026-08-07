@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const TIPS = {
   light: [
@@ -45,6 +45,14 @@ const TABS = [
 export function TipsDrawer({ open, onClose }) {
   const [cat, setCat] = useState("light")
 
+  useEffect(() => {
+    if (!open) return
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [open])
+
   return (
     <>
       <div
@@ -56,9 +64,10 @@ export function TipsDrawer({ open, onClose }) {
       />
       <div
         id="drawer"
-        className={`fixed right-0 top-0 bottom-0 z-[9100] flex w-[370px] max-w-[90vw] flex-col border-l border-[rgba(200,185,150,0.09)] bg-[#0f0f14] transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`fixed right-0 top-0 bottom-0 z-[9100] flex w-[370px] max-w-[90vw] flex-col overscroll-contain border-l border-[rgba(200,185,150,0.09)] bg-[#0f0f14] transition-transform duration-550 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         <div className="flex items-center justify-between border-b border-[rgba(200,185,150,0.07)] p-[1.8rem]">
           <span className="font-serif text-[1.2rem] italic text-bone">Photography Tips</span>
@@ -66,7 +75,8 @@ export function TipsDrawer({ open, onClose }) {
             type="button"
             onClick={onClose}
             data-cursor-hover
-            className="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-[rgba(200,185,150,0.18)] text-[0.75rem] text-bone/38 transition-all duration-200 hover:border-rose hover:text-rose"
+            aria-label="Close tips"
+            className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-[rgba(200,185,150,0.18)] text-[0.75rem] text-bone/38 transition-all duration-200 hover:border-rose hover:text-rose"
           >
             ✕
           </button>

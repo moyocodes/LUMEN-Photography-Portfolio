@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;700&family=Unbounded:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- These <head> tags are static HTML and load before config.js runs.
+         If you change window.SITE_CONFIG.site in config.js, update the
+         matching text below too. -->
+    <title>LUMEN — Mobile Photographer | Book on WhatsApp</title>
+    <meta
+      name="description"
+      content="LUMEN (@lumen.studio) is a mobile photographer available for portrait and reel shoots. Available to travel. Book a session on WhatsApp: +1 555 010 1234."
+    />
+    <meta name="theme-color" content="#f0ece4" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("site-theme") || "light"
+          document.documentElement.setAttribute("data-theme", t)
+        } catch (e) {}
+      })()
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LUMEN" />
+    <meta property="og:title" content="LUMEN — Mobile Photographer" />
+    <meta property="og:description" content="Portrait &amp; reel photography that feels like you. Mobile photographer, available to travel. Book on WhatsApp: +1 555 010 1234." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=1200&q=80&auto=format&fit=crop" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LUMEN — Mobile Photographer" />
+    <meta name="twitter:description" content="Portrait &amp; reel photography that feels like you. Book on WhatsApp: +1 555 010 1234." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=1200&q=80&auto=format&fit=crop" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "LUMEN",
+        "alternateName": "@lumen.studio",
+        "image": "https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=1200&q=80&auto=format&fit=crop",
+        "telephone": "+15550101234",
+        "priceRange": "$90–$260",
+        "areaServed": "United States",
+        "sameAs": ["https://instagram.com/lumen.studio"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="top">
+      <div id="cur"></div>
+
+      <!-- ============ NAV ============ -->
+      <nav id="nav">
+        <a href="#top" class="brand" data-cursor-hover>
+          <span data-bind="site.brandInitials"></span><span class="text-rose">.</span>
+        </a>
+
+        <div class="nav-links" data-mount="nav-links"></div>
+
+        <div class="nav-actions">
+          <button type="button" id="theme-toggle" data-cursor-hover aria-label="Toggle light/dark theme">
+            <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            </svg>
+            <svg class="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+          </button>
+          <a href="#" id="nav-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose btn-sm">Book session</a>
+          <button type="button" id="menu-toggle" data-cursor-hover aria-label="Open menu" aria-expanded="false" class="menu-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="nav-drawer-back"></div>
+      <div id="nav-drawer">
+        <div class="drawer-head">
+          <span class="brand"><span data-bind="site.brandInitials"></span><span class="text-rose">.</span></span>
+          <button type="button" id="drawer-close" data-cursor-hover aria-label="Close menu">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-links" data-mount="drawer-links"></div>
+        <div class="drawer-cta">
+          <a href="#" id="drawer-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose btn-block">Book session</a>
+        </div>
+      </div>
+
+      <!-- ============ HERO ============ -->
+      <div id="hero-zone">
+        <div id="hero-pin">
+          <div id="h-img">
+            <div class="h-img-mobile" data-mount="gallery-mobile"></div>
+            <div class="h-img-grid">
+              <div class="h-img-col" data-mount="collage-a"></div>
+              <div class="h-img-col" data-mount="portrait-a"></div>
+              <div class="h-img-col" data-mount="collage-b"></div>
+            </div>
+          </div>
+          <div id="h-grad"></div>
+
+          <div id="h-text">
+            <p class="eyebrow" data-bind="hero.eyebrow"></p>
+            <h1 class="hero-h1">
+              <span data-bind="hero.headlineLine1"></span><br />
+              <span data-bind="hero.headlineLine2"></span><br />
+              <em data-bind="hero.headlineEmphasis"></em>
+            </h1>
+            <div class="hero-bottom-row">
+              <p class="hero-sub" data-bind="hero.subcopy"></p>
+              <div class="hero-ctas">
+                <a href="#film-zone" data-cursor-hover class="btn-rose">View gallery</a>
+                <a href="#about" data-cursor-hover class="btn-outline">About</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="h-hint">
+            <span>Scroll</span>
+            <div class="hint-line"></div>
+          </div>
+
+          <div id="h-quote">
+            <div id="h-q-inner">
+              <h2>
+                <span data-bind="hero.quoteLine1"></span><br />
+                is a <strong data-bind="hero.quoteEmphasis"></strong>
+              </h2>
+            </div>
+          </div>
+
+          <div id="h-cta">
+            <div class="h-cta-bg"></div>
+            <div class="h-cta-side h-cta-side-left" data-mount="portrait-cta-a"></div>
+            <div class="h-cta-side h-cta-side-right" data-mount="portrait-cta-b"></div>
+            <div id="h-cta-in">
+              <div class="cta-eyebrow" data-bind="hero.ctaEyebrow"></div>
+              <h3>
+                <span data-bind="hero.ctaHeadline1"></span><br />
+                <em data-bind="hero.ctaHeadlineEmphasis"></em>
+              </h3>
+              <p data-bind="hero.ctaSubcopy"></p>
+              <div class="hero-ctas" style="justify-content:center">
+                <a href="#film-zone" data-cursor-hover class="btn-rose">See the work</a>
+                <a href="#contact" data-cursor-hover class="btn-outline">Book now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ TICKER ============ -->
+      <div id="ticker">
+        <div class="ticker-track" data-mount="ticker"></div>
+      </div>
+
+      <!-- ============ FILM STRIP ============ -->
+      <div id="film-zone">
+        <div id="film-pin">
+          <div class="film-edge film-edge-top">
+            <div class="film-perf" data-mount="perf-top"></div>
+          </div>
+          <div id="film-hd">
+            <h3>Selected frames</h3>
+            <span id="film-code"></span>
+          </div>
+          <div id="film-vp">
+            <div id="film-track" data-mount="film-track"></div>
+          </div>
+          <div class="film-edge film-edge-bottom">
+            <div class="film-perf" data-mount="perf-bottom"></div>
+          </div>
+          <div id="film-prog">
+            <span>SCROLL</span>
+            <div id="prog-bar"><div id="prog-fill"></div></div>
+            <span id="prog-count"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ABOUT ============ -->
+      <section id="about">
+        <div class="about-grid">
+          <div class="srl about-imgs">
+            <img id="about-img-1" alt="Portrait photography sample" class="about-img about-img-1" />
+            <img id="about-img-2" alt="Portrait photography sample" class="about-img about-img-2" />
+          </div>
+          <div class="srr d1">
+            <p class="eyebrow">About</p>
+            <h2 class="section-h2">
+              <span data-bind="about.headline"></span> <em data-bind="about.headlineEmphasis"></em>
+            </h2>
+            <p class="about-body" data-bind="about.body"></p>
+            <div class="about-quote">
+              <q data-bind="about.quote"></q>
+            </div>
+            <a href="#" id="about-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose">Book a session</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PACKAGES ============ -->
+      <section id="packages">
+        <div class="section-inner">
+          <p class="sr eyebrow">Packages</p>
+          <h2 class="sr section-h2 mb-lg">Price list.</h2>
+          <div class="packages-grid" data-mount="packages"></div>
+          <p class="sr packages-note" data-bind="packagesNote"></p>
+        </div>
+      </section>
+
+      <!-- ============ POLICY + FAQ ============ -->
+      <section id="policy-faq">
+        <div class="policy-faq-watermark" aria-hidden="true"><span data-bind="site.brandInitials"></span></div>
+        <div class="policy-faq-grid">
+          <div id="policy">
+            <p class="sr eyebrow">Please read</p>
+            <h2 class="sr section-h2 mb-lg">Booking policy.</h2>
+            <div class="sr d1 policy-card">
+              <div class="policy-card-head">
+                <span>Booking Policy</span>
+                <span class="policy-bang">!</span>
+              </div>
+              <ul class="policy-list" data-mount="policies"></ul>
+              <p class="policy-note">Please read through before proceeding with your booking. Thank you!</p>
+              <p class="policy-handle" data-bind="contact.instagramHandle"></p>
+            </div>
+          </div>
+
+          <div id="faq">
+            <p class="sr eyebrow">Good to know</p>
+            <h2 class="sr section-h2 mb-lg">FAQ.</h2>
+            <div class="sr d1" id="faq-list" data-mount="faqs"></div>
+          </div>
+        </div>
+
+        <div class="sr policy-faq-cta">
+          <p>Still have questions?</p>
+          <a href="#" id="faq-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose">Message on WhatsApp</a>
+        </div>
+      </section>
+
+      <!-- ============ TESTIMONIALS ============ -->
+      <section id="testi">
+        <div class="testi-glow" aria-hidden="true"></div>
+        <div class="section-inner">
+          <p class="sr eyebrow">Kind words</p>
+          <h2 class="sr section-h2 mb-md">What clients say.</h2>
+
+          <div class="sr testi-grid" data-mount="testi-grid"></div>
+
+          <div class="sr testi-slider">
+            <div class="testi-slider-track" id="testi-track" data-mount="testi-slides"></div>
+            <div class="testi-dots" id="testi-dots" data-mount="testi-dots"></div>
+          </div>
+
+          <div class="sr testi-cta">
+            <p>Ready to be one of them?</p>
+            <a href="#" id="testi-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose">Book a session</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section id="contact">
+        <img id="ct-bg" alt="" />
+        <div id="ct-vign"></div>
+        <div class="contact-grid">
+          <div class="srl">
+            <h2 class="contact-h2">
+              <span data-bind="contactHeadline.line1"></span><br />
+              <span data-bind="contactHeadline.line2"></span><br />
+              <em data-bind="contactHeadline.emphasis"></em>
+            </h2>
+            <p class="contact-sub">Send a message and I'll get back to you on WhatsApp to confirm your date.</p>
+            <div>
+              <a href="#" id="contact-ig-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="contact-ig" data-bind="contact.instagramHandle"></a>
+            </div>
+          </div>
+          <form class="srr d1" id="contact-form">
+            <div class="mb-3">
+              <input type="text" id="cf-name" placeholder="Your name" data-cursor-hover class="input" />
+            </div>
+            <div class="mb-3">
+              <select id="cf-type" data-cursor-hover class="input">
+                <option value="">Type of session…</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <textarea id="cf-note" placeholder="Tell me about your vision…" rows="4" data-cursor-hover class="input"></textarea>
+            </div>
+            <button type="submit" data-cursor-hover class="btn-rose btn-block">Send on WhatsApp</button>
+          </form>
+        </div>
+        <div class="contact-footer">
+          <div class="footer-brand"><span data-bind="site.brandInitials"></span><span class="text-rose">.</span></div>
+          <p class="footer-copy" data-bind="footer.copyright"></p>
+          <div class="footer-links">
+            <a href="#" id="footer-ig-link" target="_blank" rel="noopener noreferrer" data-cursor-hover>Instagram</a>
+            <a href="#film-zone" data-cursor-hover>Work</a>
+            <a href="#contact" data-cursor-hover>Contact</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WHATSAPP WIDGET ============ -->
+      <div class="fixed-widget fixed-widget-right">
+        <div id="wa-panel" class="widget-panel" hidden>
+          <div class="widget-panel-title">Message us on WhatsApp</div>
+          <textarea id="wa-message" rows="4" class="widget-textarea"></textarea>
+          <a href="#" id="wa-send" target="_blank" rel="noopener noreferrer" data-cursor-hover class="wa-send-btn">Send on WhatsApp</a>
+        </div>
+        <div class="widget-row">
+          <button type="button" id="wa-chat-label" data-cursor-hover class="chat-label-btn">Chat with us</button>
+          <button type="button" id="wa-widget" aria-label="Chat with us on WhatsApp" aria-expanded="false" data-cursor-hover class="wa-fab">
+            <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
+              <path d="M16.02 3C9.4 3 4 8.37 4 15c0 2.34.66 4.52 1.8 6.38L4 29l7.8-1.75A11.94 11.94 0 0 0 16.02 27C22.65 27 28 21.63 28 15S22.65 3 16.02 3Zm0 21.8c-1.98 0-3.83-.55-5.41-1.5l-.39-.23-4.63 1.04 1.02-4.5-.25-.4A9.7 9.7 0 0 1 6.2 15c0-5.4 4.4-9.8 9.82-9.8 5.42 0 9.82 4.4 9.82 9.8 0 5.4-4.4 9.8-9.82 9.8Zm5.38-7.34c-.29-.15-1.73-.86-2-.95-.27-.1-.46-.15-.66.14-.2.29-.76.95-.93 1.15-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.44a8.75 8.75 0 0 1-1.62-2.02c-.17-.29-.02-.44.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.58-.48-.5-.66-.51h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.19 3.03c.15.19 2.07 3.17 5.03 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.12.56-.08 1.73-.71 1.98-1.39.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.34Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ RATE CARD WIDGET ============ -->
+      <div class="fixed-widget fixed-widget-left">
+        <div id="rate-panel" class="widget-panel" hidden>
+          <div class="widget-panel-title">Rate card</div>
+          <ul class="rate-list" data-mount="rate-list"></ul>
+          <p class="rate-note" data-bind="packagesNote"></p>
+          <div class="rate-actions">
+            <a href="#packages" data-cursor-hover class="btn-outline btn-sm-flex">Full price list</a>
+            <a href="#" id="rate-book-link" target="_blank" rel="noopener noreferrer" data-cursor-hover class="btn-rose btn-sm-flex">Book now</a>
+          </div>
+        </div>
+        <button type="button" id="rate-widget" aria-label="View rate card" aria-expanded="false" data-cursor-hover class="rate-fab">
+          <span class="text-rose" data-bind="currencySymbol"></span>
+          <span class="rate-fab-label">Rate card</span>
+        </button>
+      </div>
+
+      <!-- ============ DARK MODE TOAST ============ -->
+      <div id="theme-toast" role="dialog" aria-label="Theme suggestion">
+        <p id="theme-toast-label"></p>
+        <div class="theme-toast-actions">
+          <button type="button" id="theme-toast-switch" data-cursor-hover class="btn-rose btn-sm-flex"></button>
+          <button type="button" id="theme-toast-dismiss" data-cursor-hover class="btn-outline btn-sm-flex">Dismiss</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

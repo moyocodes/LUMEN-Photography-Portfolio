@@ -74,7 +74,7 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(160deg, rgba(7,7,10,0.05) 0%, rgba(7,7,10,0.5) 50%, rgba(7,7,10,0.98) 100%)",
+              "linear-gradient(160deg, color-mix(in srgb, var(--background) 5%, transparent) 0%, color-mix(in srgb, var(--background) 50%, transparent) 50%, color-mix(in srgb, var(--background) 98%, transparent) 100%)",
           }}
         />
 
@@ -87,7 +87,7 @@ export function Hero() {
           <p className="mb-[1.6rem] flex items-center gap-[0.8rem] text-[0.56rem] tracking-[0.22em] uppercase text-rose before:block before:h-px before:w-8 before:bg-rose">
             Mobile Photographer · Available to Travel
           </p>
-          <h1 className="mb-[2.8rem] font-display text-[clamp(3.8rem,9.5vw,10rem)] font-black leading-[0.88] tracking-[-0.03em] text-bone">
+          <h1 className="mb-[2.8rem] font-display text-[clamp(3.8rem,9.5vw,10rem)] font-black leading-[0.88] tracking-[-0.03em] text-foreground">
             Light.
             <br />
             Moment.
@@ -95,21 +95,21 @@ export function Hero() {
             <em className="font-serif text-rose font-normal italic">Memory.</em>
           </h1>
           <div className="flex flex-wrap items-end justify-between gap-8">
-            <p className="max-w-[280px] text-[0.85rem] leading-[1.9] text-bone/40">
+            <p className="max-w-[280px] text-[0.85rem] leading-[1.9] text-foreground/40">
               Portrait &amp; reel photography — emotion held still.
             </p>
             <div className="flex gap-[0.6rem]">
               <a
                 href="#film-zone"
                 data-cursor-hover
-                className="inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-ink no-underline transition-all duration-250 hover:bg-rose-2"
+                className="inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-background no-underline transition-all duration-250 hover:bg-rose-2"
               >
                 View gallery
               </a>
               <a
                 href="#about"
                 data-cursor-hover
-                className="inline-block rounded-full border border-bone/22 px-[1.8rem] py-[0.8rem] text-[0.65rem] tracking-[0.12em] uppercase text-bone no-underline transition-all duration-250 hover:border-bone/60"
+                className="inline-block rounded-full border border-foreground/22 px-[1.8rem] py-[0.8rem] text-[0.65rem] tracking-[0.12em] uppercase text-foreground no-underline transition-all duration-250 hover:border-foreground/60"
               >
                 About
               </a>
@@ -120,11 +120,12 @@ export function Hero() {
           className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
           ref={hintRef}
         >
-          <span className="text-[0.5rem] tracking-[0.2em] uppercase text-bone/22">Scroll</span>
+          <span className="text-[0.5rem] tracking-[0.2em] uppercase text-foreground/22">Scroll</span>
           <div
             className="h-[2.6rem] w-px"
             style={{
-              background: "linear-gradient(to bottom, rgba(240,236,228,0.22), transparent)",
+              background:
+                "linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 22%, transparent), transparent)",
             }}
           />
         </div>
@@ -136,8 +137,11 @@ export function Hero() {
         >
           <div id="h-q-inner" ref={quoteInnerRef} className="p-8 text-center">
             <h2
-              className="font-serif text-[clamp(2.8rem,7.5vw,8rem)] font-normal italic leading-[0.93] tracking-[-0.01em] text-bone"
-              style={{ textShadow: "0 4px 80px rgba(0,0,0,0.9)" }}
+              className="font-serif text-[clamp(2.8rem,7.5vw,8rem)] font-normal italic leading-[0.93] tracking-[-0.01em] text-foreground"
+              style={{
+                textShadow:
+                  "0 4px 80px color-mix(in srgb, var(--background) 90%, transparent)",
+              }}
             >
               Every frame
               <br />
@@ -152,32 +156,35 @@ export function Hero() {
         <div
           id="h-cta"
           ref={ctaRef}
-          className="absolute inset-0 z-7 flex items-center justify-center pointer-events-none opacity-0 bg-[rgba(7,7,10,0.52)] backdrop-blur-[8px]"
+          className="absolute inset-0 z-7 flex items-center justify-center pointer-events-none opacity-0 backdrop-blur-[8px]"
+          style={{
+            background: "color-mix(in srgb, var(--background) 52%, transparent)",
+          }}
         >
           <div id="h-cta-in" ref={ctaInRef} className="translate-y-10 text-center opacity-0">
             <div className="mb-[1.4rem] text-[0.6rem] tracking-[0.2em] uppercase text-rose">
               Ready to be seen?
             </div>
-            <h3 className="mb-[1.2rem] font-serif text-[clamp(2.8rem,6vw,6.5rem)] font-normal leading-[0.92] text-bone">
+            <h3 className="mb-[1.2rem] font-serif text-[clamp(2.8rem,6vw,6.5rem)] font-normal leading-[0.92] text-foreground">
               Let's make
               <br />
               <em className="italic text-rose">something real.</em>
             </h3>
-            <p className="mx-auto mb-8 max-w-[340px] text-[0.82rem] leading-[1.85] text-bone/38">
+            <p className="mx-auto mb-8 max-w-[340px] text-[0.82rem] leading-[1.85] text-foreground/38">
               A feeling, a moment — preserved in a single frame.
             </p>
             <div className="flex justify-center gap-[0.6rem]">
               <a
                 href="#film-zone"
                 data-cursor-hover
-                className="pointer-events-auto inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-ink no-underline transition-all duration-250 hover:bg-rose-2"
+                className="pointer-events-auto inline-block rounded-full bg-rose px-[1.8rem] py-[0.8rem] text-[0.65rem] font-medium tracking-[0.12em] uppercase text-background no-underline transition-all duration-250 hover:bg-rose-2"
               >
                 See the work
               </a>
               <a
                 href="#contact"
                 data-cursor-hover
-                className="pointer-events-auto inline-block rounded-full border border-bone/22 px-[1.8rem] py-[0.8rem] text-[0.65rem] tracking-[0.12em] uppercase text-bone no-underline transition-all duration-250 hover:border-bone/60"
+                className="pointer-events-auto inline-block rounded-full border border-foreground/22 px-[1.8rem] py-[0.8rem] text-[0.65rem] tracking-[0.12em] uppercase text-foreground no-underline transition-all duration-250 hover:border-foreground/60"
               >
                 Book now
               </a>

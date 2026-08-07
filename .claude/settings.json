@@ -59,7 +59,12 @@
       "Bash(node shot.mjs)",
       "Bash(node shot2.mjs)",
       "Bash(python3 -c ' *)",
-      "Bash(node shot3.mjs)"
+      "Bash(node shot3.mjs)",
+      "Bash(node shot4.mjs)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(lsof -ti:5173,5174,5175)",
+      "Bash(xargs kill)"
     ],
     "additionalDirectories": [
       "/Users/tizetimoyosore/Developer/tiwa/app/@/components/ui"

@@ -1,32 +1,50 @@
-# React + TypeScript + Vite
+# TTMP Photography
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Portfolio and booking site for **TTMP (@ttakesmypictures)**, a mobile
+portrait and reel photographer based in Nigeria who is available to travel.
+Live at **[ttmp.vercel.app](https://ttmp.vercel.app)**.
 
-Currently, two official plugins are available:
+Clients browse the work, compare packages, and book a session through a
+pre-filled WhatsApp chat. The site has no backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- **React 19** + **Vite**
+- **Tailwind CSS v4** (via `@tailwindcss/vite`)
+- **Framer Motion** for scroll-driven and entrance animations
+- Light/dark theme, remembered in `localStorage`
+- SEO: meta description, Open Graph/Twitter cards, and `LocalBusiness`
+  JSON-LD in `index.html`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+- Cinematic scroll-driven hero and film-strip portfolio gallery
+- Pricing packages, each with a **Book now** button that opens WhatsApp
+  with a message pre-filled for that package
+- Combined booking policy + FAQ section
+- Client testimonials
+- Floating WhatsApp button and a rate-card widget for a quick price glance
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Running it
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # production build → dist/
+npm run preview   # serve the build locally
+npm run lint      # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Template
+
+[`template/`](template/) contains **LUMEN**, a reusable photography
+portfolio template built from this site, in two identical versions:
+
+- `template/react/` — React 19 + Vite + Tailwind v4
+- `template/html/` — plain HTML/CSS/JS, no build step
+
+See [`template/README.md`](template/README.md) for setup and rebranding.
+
+## License
+
+All rights reserved. See [LICENSE](LICENSE).

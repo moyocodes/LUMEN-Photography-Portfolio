@@ -61,7 +61,7 @@ comment marking where to update these to match.
   headshot photo URL)
 
 Everything else (headlines, section copy, button labels) is example
-content you can keep, tweak, or rewrite freely.
+content you can keep, tweak, or rewrite.
 
 ## Photos
 
@@ -135,3 +135,8 @@ html/
 
 Uses modern CSS (`color-mix()`, container-relative units, `dvh`) and
 should run on any current version of Chrome, Safari, Firefox, or Edge.
+
+## License
+
+All rights reserved. See [LICENSE](LICENSE). Buyers may use and modify the
+template for their own site(s), but may not resell or redistribute it.
